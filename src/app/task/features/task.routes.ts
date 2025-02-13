@@ -1,8 +1,9 @@
-import {Routes} from "@angular/router";
+import {Routes} from "@angular/router"; 
+// Se importa el tipo Routes desde Angular Router para definir las rutas de la aplicación.
 
 export default [
     {
-        path: '',
+        path: '', 
         loadComponent: () => import('./task-list/task-list.component'),
     },
     {
@@ -14,3 +15,5 @@ export default [
         loadComponent: () => import('./task-form/task-form.component'),
     },
 ] as Routes; 
+// Se exportan las rutas que serán utilizadas por el enrutador de Angular.
+// Cada ruta está asociada a una componente mediante lazy loading (carga diferida).

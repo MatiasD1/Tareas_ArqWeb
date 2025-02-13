@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NgxSonnerToaster } from 'ngx-sonner';
-import { AuthStateService } from './shared/data-access/auth-state.service';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +10,4 @@ import { AuthStateService } from './shared/data-access/auth-state.service';
 })
 export class AppComponent {
   
- 
 }

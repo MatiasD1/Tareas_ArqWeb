@@ -3,9 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    @apply bg-gray-900;
+body {
+    @apply bg-[#f0b27a]; /* Marrón suave, menos claro */
 }
+
 
 :root {
     color-scheme: dark light;

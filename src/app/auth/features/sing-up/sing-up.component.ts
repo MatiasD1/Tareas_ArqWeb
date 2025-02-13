@@ -18,9 +18,10 @@ interface FormSignUp {
 })
 export default class SingUpComponent {
 
-  private _formBuilder = inject(FormBuilder);
-  private _authService = inject(AuthService); 
-  private _router = inject(Router); 
+  private _formBuilder = inject(FormBuilder); //construir el formulario
+  private _authService = inject(AuthService); //gestionar la autenticacion
+  private _router = inject(Router); //manejar la navegacion entre paginas
+  
   isRequired(field: 'email' | 'password'){
     return isRequired(field, this.form); 
   }
@@ -29,9 +30,9 @@ export default class SingUpComponent {
     return hasEmailError(this.form);
   }
 
-    form = this._formBuilder.group<FormSignUp>({
-    email: this._formBuilder.control('',[Validators.required, Validators.email]),
-    password: this._formBuilder.control('',[Validators.required]),
+  form = this._formBuilder.group<FormSignUp>({ //define los campos del formulario 
+      email: this._formBuilder.control('',[Validators.required, Validators.email]),
+      password: this._formBuilder.control('',[Validators.required]),
   }); 
 
   async submit(){
@@ -42,7 +43,7 @@ export default class SingUpComponent {
 
       if( !email || !password) return;
 
-      await this._authService.singUp({email,password});
+      await this._authService.singUp({email,password}); //llama al servicio de registro de usuario 
     
       toast.success('Usuario creado correctamente');
       this._router.navigateByUrl('/tasks')
@@ -56,7 +57,7 @@ export default class SingUpComponent {
 
   async submitWithGoogle(){
     try{
-      await this._authService.signInWithGoogle();
+      await this._authService.signInWithGoogle(); //llama al servicio de registro con Google
       toast.success('Bienvenido de nuevo');
       this._router.navigateByUrl('/tasks')
     } catch(error) {
