@@ -1,0 +1,48 @@
+<section class="mx-auto w-full max-w-screen-sm px-4 p-6 bg-[#F5E8DD] dark:bg-[#3E2C23] rounded-lg">
+    <!-- Se ha añadido `rounded-lg` al contenedor principal para bordes redondeados. -->
+    <div>
+        <form class="space-y-4 md:space-y-6" [formGroup]="form" (ngSubmit)="submit()">
+            <div>
+                <label for="title" class="block mb-2 text-sm font-medium text-[#5A3E2B] dark:text-[#F5E8DD]">
+                    Título
+                </label>
+                <input 
+                    type="title" 
+                    name="title" 
+                    id="text" 
+                    class="bg-[#F5E8DD] border border-[#D2B48C] text-[#5A3E2B] rounded-lg 
+                    focus:ring-[#8B5E3B] focus:border-[#8B5E3B] 
+                    block w-full p-2.5 
+                    dark:bg-[#3E2C23] dark:border-[#8B5E3B] 
+                    dark:placeholder-[#D2B48C] dark:text-[#F5E8DD] 
+                    dark:focus:ring-[#6F4E37] dark:focus:border-[#6F4E37]"
+                    formControlName="title">
+            </div>
+            
+            <div>
+                <label class="inline-flex items-center cursor-pointer">
+                    <input formControlName="completed" type="checkbox" value="" class="sr-only peer">
+                    <div class="relative w-11 h-6 bg-[#D2B48C] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#8B5E3B] 
+                    dark:peer-focus:ring-[#6F4E37] rounded-full peer dark:bg-[#5A3E2B] 
+                    peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white 
+                    after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-[#D2B48C] 
+                    after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-[#8B5E3B] 
+                    peer-checked:bg-[#8B5E3B] dark:peer-checked:bg-[#6F4E37] rounded-lg">
+                    </div>
+                    <span class="ms-3 text-sm font-medium text-[#5A3E2B] dark:text-[#F5E8DD]">
+                        Completado
+                    </span>
+                </label>            
+            </div>
+
+            <button 
+                [disabled]="loading()"
+                type="submit"
+                class="text-white bg-[#8B5E3B] hover:bg-[#6F4E37] focus:ring-4 focus:ring-[#D2B48C] 
+                font-medium rounded-lg text-sm px-5 py-2.5 me-2 
+                dark:bg-[#8B5E3B] dark:hover:bg-[#6F4E37] dark:focus:ring-[#D2B48C]">
+                    {{loading () ? "Guardando..." : "Guardar"}}
+            </button>
+        </form>
+    </div>
+</section>

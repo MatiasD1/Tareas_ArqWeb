@@ -1,0 +1,65 @@
+<section class="bg-[#D2B48C] dark:bg-[#8B5A2B] bg-cover bg-center" style="background-image: url('ruta-de-tu-imagen.jpg');">
+    <!-- Sección con fondo en tono tierra y posibilidad de imagen de fondo. -->
+
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <!-- Contenedor central con padding y ajuste de altura en pantallas grandes. -->
+
+        <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-[#5A3E2B] dark:text-[#F5DEB3]">
+            <!-- Logo y título del formulario. -->
+            <img class="w-12 h-10 mr-2" src="https://cdn-icons-png.flaticon.com/256/2677/2677283.png" alt="logo">
+            Almacén de Tareas  
+        </a>
+
+        <div class="w-full bg-[#FAEBD7] rounded-lg shadow dark:border dark:bg-[#654321] dark:border-[#8B4513] md:mt-0 sm:max-w-md xl:p-0">
+            <!-- Contenedor del formulario con fondo claro y bordes oscuros en modo oscuro. -->
+
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <!-- Espaciado interno del formulario. -->
+
+                <div class="flex items-center flex-col gap-y-4">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-[#5A3E2B] md:text-2xl dark:text-[#F5DEB3]">
+                        Crear nueva cuenta
+                    </h1>
+                    <app-google-button (onClick)="submitWithGoogle()"/>
+                    <!-- Botón para iniciar sesión con Google. -->
+                </div> 
+
+                <form class="space-y-4 md:space-y-6" [formGroup]="form" (ngSubmit)="submit()">
+                    <!-- Formulario con separación entre elementos. -->
+
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-[#5A3E2B] dark:text-[#F5DEB3]">
+                            Tu correo
+                        </label>
+                        <input type="email" name="email" id="email" 
+                            class="bg-[#FFF5E1] border border-[#8B4513] text-[#5A3E2B] rounded-lg focus:ring-[#D2691E] focus:border-[#D2691E] 
+                            block w-full p-2.5 dark:bg-[#8B5A2B] dark:border-[#A0522D] dark:text-[#F5DEB3]" 
+                            placeholder="name@company.com" formControlName="email">
+                        <!-- Campo de entrada de correo con estilos en tonos beige y marrón oscuro. -->
+                    </div>
+
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-[#5A3E2B] dark:text-[#F5DEB3]">
+                            Contraseña
+                        </label>
+                        <input type="password" name="password" id="password" placeholder="••••••••" formControlName="password"
+                            class="bg-[#FFF5E1] border border-[#8B4513] text-[#5A3E2B] rounded-lg focus:ring-[#D2691E] focus:border-[#D2691E] 
+                            block w-full p-2.5 dark:bg-[#8B5A2B] dark:border-[#A0522D] dark:text-[#F5DEB3]">
+                        <!-- Campo de entrada de contraseña con los mismos estilos. -->
+                    </div>
+
+                    <button type="submit" class="w-full text-white bg-[#A0522D] hover:bg-[#8B4513] focus:ring-4 focus:outline-none focus:ring-[#D2691E] font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Crear
+                    </button>
+                    <!-- Botón de envío con colores en tonos marrones y efectos al pasar el cursor. -->
+
+                    <p class="text-sm font-light text-[#5A3E2B] dark:text-[#F5DEB3]">
+                        Ya tienes una cuenta? 
+                        <a routerLink="/auth/sing-in" class="font-medium text-[#A0522D] hover:underline">Iniciar sesión</a>
+                    </p>
+                    <!-- Enlace para registro con color en tono cobre. -->
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
